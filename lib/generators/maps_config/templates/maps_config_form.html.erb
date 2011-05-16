@@ -1,0 +1,52 @@
+<%= form_for(@flickr_config) do |f| %>
+  <% if @flickr_config.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@flickr_config.errors.count, "error") %> prohibited this flickr_config from being saved:</h2>
+
+      <ul>
+      <% @flickr_config.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  </div>
+  <div class="field">
+    <%= f.label :area_id %><br />
+    <%= f.text_field :area_id %>
+  </div>
+Insert the place's name
+ 	<div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+Insert the place`s address
+	<div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+ </div>
+ <div class="field">
+    <%= f.label :number %><br />
+    <%= f.text_field :number %>
+  </div>
+  <div class="field">
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :state %>
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :zip %>
+    <%= f.text_field :zip %>
+  </div>
+  <div class="field">
+    <%= f.label :info %><br />
+    <%= f.text_area :info %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
