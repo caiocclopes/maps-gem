@@ -15,7 +15,6 @@ module Maps
       field :name, :default => "Unknown"
       field :area_id, type: Integer
       validates_presence_of :area_id, :message => "can`t be null"
-      validates_uniqueness_of :area_id, :message => "must be unique"
       validates_presence_of :address, :message => "can`t be null"
       validates_presence_of :number, :message => "can`t be null"
       validates_presence_of :city, :message => "can`t be null"

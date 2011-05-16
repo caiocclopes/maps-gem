@@ -1,10 +1,10 @@
-<%= form_for(@flickr_config) do |f| %>
-  <% if @flickr_config.errors.any? %>
+<%= form_for(@maps_config) do |f| %>
+  <% if @maps_config.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@flickr_config.errors.count, "error") %> prohibited this flickr_config from being saved:</h2>
+      <h2><%= pluralize(@maps_config.errors.count, "error") %> prohibited this maps_config from being saved:</h2>
 
       <ul>
-      <% @flickr_config.errors.full_messages.each do |msg| %>
+      <% @maps_config.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
