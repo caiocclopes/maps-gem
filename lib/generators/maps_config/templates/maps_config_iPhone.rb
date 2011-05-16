@@ -56,10 +56,16 @@ class MapsController < ApplicationController
       render :text => "Error - missing parameters"
       return
     end
-    stores = Maps::Model::MapsModel.where(:latitude.lte => params[:max_final_lat].to_f).where(:latitude.gte => params[:min_final_lat].to_f).where(:longitude.lte => params[:max_final_lng].to_f).where(:longitude.gte => params[:min_final_lng].to_f)
+    
+  stores = Maps::Model::MapsModel.where(:latitude.lte => params[:max_final_lat].to_f).where(:latitude.gte => params[:min_final_lat].to_f).where(:longitude.lte => params[:max_final_lng].to_f).where(:longitude.gte => params[:min_final_lng].to_f)
+  
+  if(params[:max_inicial_lat] == 0.00000 or params[:max_inicial_lng] == 0.00000 or params[:min_inicial_lat] == 0.00000 or params[:min_inicial_lng] == 0.00000  or params[:max_final_lat] == 0.00000  or params[:max_final_lng] == 0.00000 or params[:min_final_lat] == 0.00000  or params[:min_final_lng] == 0.00000 )
+    render :text => stores.entries.to_json
+  else
     stores_not = Maps::Model::MapsModel.where(:latitude.lte => params[:max_inicial_lat].to_f).where(:latitude.gte => params[:min_inicial_lat].to_f).where(:longitude.lte => params[:max_inicial_lng].to_f).where(:longitude.gte => params[:min_inicial_lng].to_f)
     stores = (stores.entries - stores_not.entries)
     render :text => stores.entries.to_json
+    end
   end
   
   
